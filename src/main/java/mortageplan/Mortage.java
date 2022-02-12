@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +21,10 @@ public Map<String, ArrayList<Double>> readFile() {
 		
 		Map<String,ArrayList<Double>> Map = new HashMap<String, ArrayList<Double>>();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("prospects.txt"));
+			ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+			InputStream is = classloader.getResourceAsStream("prospects.txt");
+			InputStreamReader streamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
+			BufferedReader br = new BufferedReader(streamReader);
 			String line = null;
 			for(int i = 0; i<2;i++) {
 			line = br.readLine();
