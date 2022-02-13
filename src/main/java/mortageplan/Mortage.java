@@ -14,7 +14,8 @@ import java.util.Map.Entry;
 
 
 public class Mortage {
-public Map<String, ArrayList<Double>> readFile() {
+	// läser in finlen prospects och gör en hash map returnerar värdena i en hash map
+	public Map<String, ArrayList<Double>> readFile() {
 		
 		String tmpKey;
 		String[] keyAndValue;
@@ -56,7 +57,7 @@ public Map<String, ArrayList<Double>> readFile() {
 		
 		return Map;
 	}
-	
+	// funktionen som loppar igenom hash mappen och printar ut svaren med 2 dcimaler
 	public void showMortage() {
 		Map<String,ArrayList<Double>> Map = new HashMap<String, ArrayList<Double>>();
 		Map = readFile(); 
@@ -66,7 +67,7 @@ public Map<String, ArrayList<Double>> readFile() {
 			System.out.println(name+" "+String.format("%.2f", answ));
 		}
 	}
-	
+	// själva formeln för att räkna ut monatliga räntan
 	public double calculate(ArrayList<Double> list) {
 		double fixedPayment;
 		double totalLoan = list.get(0);
@@ -80,7 +81,7 @@ public Map<String, ArrayList<Double>> readFile() {
 		fixedPayment = totalLoan*(numerator/denominator);
 		return fixedPayment;
 	}
-	
+	// upphöjnings funktion
 	public double powerOf(double base,double exponent) {
 		    double result = 1;
 
@@ -91,7 +92,7 @@ public Map<String, ArrayList<Double>> readFile() {
 		
 		return result;
 	}
-	
+	// testar om en sträng är en double och returnerar true om den e annars false
 	public boolean isNumeric(String string) {
 	    double doubleValue;
 			
