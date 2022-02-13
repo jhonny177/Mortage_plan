@@ -63,7 +63,7 @@ public Map<String, ArrayList<Double>> readFile() {
 		for (Entry<String, ArrayList<Double>> entry : Map.entrySet()){
 			String name = entry.getKey();
 			Double answ = calculate(entry.getValue());
-			System.out.println(name+" "+answ);
+			System.out.println(name+" "+String.format("%.2f", answ));
 		}
 	}
 	
